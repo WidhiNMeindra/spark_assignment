@@ -1,20 +1,43 @@
-# Dibimbing, Data Engineering Bootcamp
+## Dokumentasi ETL Batch Airflow & PySpark
 
-1. Clone This Repo.
-2. Run `make docker-build` for x86 user, or `make docker-build-arm` for arm chip user.
+# Alur Kerja DAG Airflow
+DAG otomatisasi proses ETL dijadwalkan dengan Airflow.
+Satu task utama: menjalankan script PySpark menggunakan BashOperator dan spark-submit.
+Data hasil ETL disimpan ke CSV & PostgreSQL.
 
----
-```
-## docker-build                 - Build Docker Images (amd64) including its inter-container network.
-## docker-build-arm             - Build Docker Images (arm64) including its inter-container network.
-## postgres                     - Run a Postgres container
-## spark                        - Run a Spark cluster, rebuild the postgres container, then create the destination tables
-## jupyter                      - Spinup jupyter notebook for testing and validation purposes.
-## airflow                      - Spinup airflow scheduler and webserver.
-## kafka                        - Spinup kafka cluster (Kafka+Zookeeper).
-## datahub                      - Spinup datahub instances.
-## metabase                     - Spinup metabase instance.
-## clean                        - Cleanup all running containers related to the challenge.
-```
+# Proses ETL
+-Extract:
+Membaca data retail dari CSV (online-retail-dataset.csv) dengan PySpark.
 
----
+-Transform:
+Menambah kolom bulan & tahun invoice.
+
+Menghitung jumlah pelanggan unik setiap bulan (countDistinct(CustomerID)).
+
+-Load:
+Menulis hasil agregasi ke file CSV.
+
+Menyimpan hasil ke tabel PostgreSQL menggunakan koneksi JDBC.
+
+# Analisis Batch
+-Analisis Retention:
+Mengukur jumlah pelanggan unik per bulan (customer retention) sepanjang data.
+
+# Output:
+Tabel/CSV: InvoiceYear, InvoiceMonth, unique_customers.
+
+# Cara Menjalankan
+Pastikan semua container (Airflow, Spark, PostgreSQL) sudah jalan.
+
+Pastikan script dan data sudah di path yang benar.
+
+Trigger DAG dari Airflow Web UI.
+
+Cek hasil di output file dan database.
+
+# Catatan:
+Pastikan koneksi database dan path file sudah benar.
+
+Untuk kendala, cek log Airflow/Spark.
+
+Gunakan driver JDBC saat koneksi ke PostgreSQL.
