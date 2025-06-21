@@ -1,3 +1,20 @@
+
+## Dokumentasi Assignment Kafka
+Assignment ini melibatkan pembuatan **Producer** dan **Consumer** untuk memproduksi dan mengkonsumsi data nasabah bank menggunakan **Apache Kafka**. Data yang diproduksi oleh **Producer** akan berisi informasi tentang nasabah bank, sedangkan **Consumer** akan membaca data tersebut dan melakukan perhitungan tertentu (misalnya, menghitung rata-rata saldo nasabah). Assignment ini juga menggunakan **ksqlDB** untuk query dan transformasi data secara real-time.
+
+## Tools yang Digunakan
+- **Docker**: Untuk menjalankan Kafka, ksqlDB, dan Kafka UI.
+- **Kafka**: Untuk messaging dan streaming data.
+- **ksqlDB**: Untuk melakukan query real-time pada data yang mengalir melalui Kafka.
+- **Python**: Digunakan untuk membuat Kafka Producer dan Consumer.
+- **Jupyter Notebook**: Digunakan untuk menulis dan menjalankan script Python yang terkait dengan Kafka Producer.
+
+## Struktur Proyek
+- **Producer**: Menghasilkan data nasabah bank secara acak dan mengirimkannya ke topik Kafka `nasabah_bank`.
+- **Consumer**: Mengkonsumsi data dari topik Kafka dan melakukan perhitungan (misalnya, rata-rata saldo nasabah).
+- **Kafka**: Menyimpan dan mengalirkan data dalam bentuk stream.
+- **ksqlDB**: Untuk menjalankan query SQL pada stream data dan melakukan agregasi secara real-time.
+
 ## Dokumentasi ETL Batch Airflow & PySpark
 
 # Alur Kerja DAG Airflow
