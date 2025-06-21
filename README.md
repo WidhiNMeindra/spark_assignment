@@ -15,6 +15,10 @@ Assignment ini melibatkan pembuatan **Producer** dan **Consumer** untuk memprodu
 - **Kafka**: Menyimpan dan mengalirkan data dalam bentuk stream.
 - **ksqlDB**: Untuk menjalankan query SQL pada stream data dan melakukan agregasi secara real-time.
 
+# Hasil pekerjaan ada di folder screenshoot
+
+---------------------------------------------------------------------------------------------------------------------------
+
 ## Dokumentasi ETL Batch Airflow & PySpark
 
 # Alur Kerja DAG Airflow
@@ -58,3 +62,5 @@ Pastikan koneksi database dan path file sudah benar.
 Untuk kendala, cek log Airflow/Spark.
 
 Gunakan driver JDBC saat koneksi ke PostgreSQL.
+
+# Hasil pekerjaan ada di folder screenshoot
