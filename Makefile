@@ -205,3 +205,34 @@ clean:
 
 postgres-bash:
 	@docker exec -it dataeng-postgres bash
+
+## SPARK STREAMING PRACTICE
+## =================================================================================================
+
+# Usage:
+#   make run-producer
+#   make run-streaming
+
+# -------------------------------------------------------------------------------------------------
+
+# Event Producer Directory and Script
+P_EVENT_PRODUCER_DIR := 01_event_producer
+P_EVENT_PRODUCER_SCRIPT := event_producer.py
+
+# Streaming Job Directory and Script
+P_STREAMING_JOB_DIR := 02_streaming_job
+P_STREAMING_JOB_SCRIPT := streaming_job.py
+
+# --- Generic Targets ---
+
+# Run Event Producer
+run-producer:
+	@echo "Running event producer for streaming pipeline..."
+	docker exec -it ${SPARK_MASTER_CONTAINER_NAME} python /streaming-practice/$(P_EVENT_PRODUCER_DIR)/$(P_EVENT_PRODUCER_SCRIPT)
+
+# Run Streaming Job (PySpark)
+run-streaming:
+	@echo "Running streaming job for pipeline..."
+	docker exec -it ${SPARK_MASTER_CONTAINER_NAME} spark-submit \
+		--packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.0 \
+		/streaming-practice/$(P_STREAMING_JOB_DIR)/$(P_STREAMING_JOB_SCRIPT)

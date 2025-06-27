@@ -13,6 +13,7 @@ services:
             - ../spark-scripts:/spark-scripts
             - ../scripts:/scripts
             - ../logs:/tmp
+            - ../streaming-practice:/streaming-practice
         ports:
             - ${SPARK_MASTER_UI}:8080
             - ${SPARK_MASTER_PORT}:7077
@@ -33,6 +34,7 @@ services:
             - ../spark-scripts:/spark-scripts
             - ../scripts:/scripts
             - ../logs:/tmp
+            - ../streaming-practice:/streaming-practice
         depends_on:
             - dibimbing-dataeng-spark-master
 
