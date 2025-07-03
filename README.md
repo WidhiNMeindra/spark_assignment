@@ -55,8 +55,8 @@ Assignment ini melibatkan pembuatan **Producer** dan **Consumer** untuk memprodu
 ## Dokumentasi ETL Batch Airflow & PySpark
 
 # Alur Kerja DAG Airflow
-DAG otomatisasi proses ETL dijadwalkan dengan Airflow.
-Satu task utama: menjalankan script PySpark menggunakan BashOperator dan spark-submit.
+DAG mengotomatisasi proses ETL dijadwalkan dengan Airflow.
+Satu task utama (dags\scripts\spark_retail_etl.py): menjalankan script PySpark menggunakan BashOperator dan spark-submit.
 Data hasil ETL disimpan ke CSV & PostgreSQL.
 
 # Proses ETL

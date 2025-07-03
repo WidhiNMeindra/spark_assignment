@@ -2,5 +2,5 @@ logs/*
 !logs/.gitkeep
 notebooks/*
 !notebooks/*.ipynb
-dags/*
+#dags/*
 !dags/*.py
